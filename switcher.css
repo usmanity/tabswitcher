@@ -1,8 +1,8 @@
 body {
 	box-sizing: border-box;
 	min-width: 500px;
-	font-family: Roboto, system-ui, sans-serif;
-	background: #fff;
+	font-family: Inter, system-ui, sans-serif;
+	background: transparent;
 }
 
 *, * {
@@ -10,13 +10,20 @@ body {
 	padding: 0;
 }
 
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 #topBar {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 10;
-	background: #fff;
+	background: white;
+	display: flex;
+	border-bottom: 1px solid #ccc;
 }
 
 .scrolled #topBar {
@@ -25,21 +32,34 @@ body {
 
 #search {
 	display: block;
-	width: 98%;
-	padding: 5px 10px;
+	width: 100%;
+	padding: 5px 0;
 	outline: 0;
-	font-size: 13px;
-	margin: 5px 5px;
+	font-size: 20px;
+	margin: 10px auto;
 	box-sizing: border-box;
 	background: #fff;
-	border: 2px solid #ccc;
-	border-radius: 10px;
+	border: none;
+	text-indent: 10px
+}
+
+.jump-to {
+	background-color: #e7f5fa;
+	border-radius: 8px;
+	margin: 10px;
+	width: 80px;
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+	color: #666;
 }
 
 #tabs {
 	clear: both;
 	min-height: 300px;
-	padding: 40px 0 56px 0;
+	padding: 60px 0 66px 0;
 }
 
 #filterMessage {
@@ -60,21 +80,29 @@ body {
 
 li {
 	list-style: none;
-	padding: 5px 24px 5px 10px;
+	padding: 10px 30px 10px 15px;;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	position: relative;
-	font-size: 13px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+li:hover, li.selected {
+	background-color: #1064a3;
+	color: white;
 }
 
 li div {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	pointer-events: none;
+	line-height: 20px;
 }
 
 li.dragging {
 	opacity: 0.5;
+	background-color: #1064a3;
 }
 
 li.dropTarget:before {
@@ -90,7 +118,7 @@ li.dropTarget:before {
 }
 
 li.selected.dropTarget {
-	background-color: #fff;
+	background-color: #1064a3;
 }
 
 li.selected.dropTarget button,
@@ -115,15 +143,20 @@ li.newWindow::after {
 	content: "";
 }
 
-li.selected {
-	background-color: #eee;
+li.selected button {
+	color: white;
 }
 
 li img {
 	width: 16px;
 	height: 16px;
-	margin-right: 5px;
+	margin-right: 10px;
+	margin-top: -3px;
 	vertical-align: middle;
+}
+
+li:hover img {
+	filter: invert(1);
 }
 
 li img, li span {
@@ -141,7 +174,7 @@ li button {
 	font-weight: bold;
 	border: 0;
 	opacity: 0.1;
-	padding-right: 8px;
+	padding-right: 18px;
 	width: 48px;
 	text-align: right;
 	background: transparent;
@@ -160,9 +193,6 @@ li:hover button {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: #fff;
-	color: #fff;
-	box-shadow: -1px 0 1px rgba(0,0,0,0.3);
 	text-align: right;
 	display: none;
 	height: 48px;
@@ -281,11 +311,6 @@ li:hover button {
 	li {
 		color: #fff;
 	}
-
-	li.selected.dropTarget {
-		background: transparent;
-	}
-
 
 	li.newWindow {
 		border-top: 24px solid #222;
