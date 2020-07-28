@@ -1,4 +1,4 @@
-#Quick Tab Switching Extension for Google Chrome
+# Quick Tab Switching Extension for Google Chrome
 
 Rapidly filter and switch between tabs
 
