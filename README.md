@@ -2,7 +2,7 @@
 
 Rapidly filter and switch between tabs
 
-<img src="https://raw.githubusercontent.com/kallepersson/tabswitcher/master/screenshot.png">
+<img src="screenshot.png">
 
 Tab Switcher lets you to quickly switch to other open tabs using only the keyboard, including filtering tabs by partial name or URL match.
 
